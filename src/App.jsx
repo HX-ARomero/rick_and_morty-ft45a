@@ -2,9 +2,12 @@ import './App.css';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { removeFav } from './redux/actions.js';
 import About from './components/about/About.jsx';
 import Cards from './components/cards/Cards.jsx';
 import Detail from './components/detail/Detail.jsx';
+import Favorites from './components/favorites/Favorites.jsx';
 import Form from './components/form/Form.jsx';
 import Nav from './components/nav/Nav.jsx';
 import NotFound from './components/notfound/NotFound.jsx';
@@ -16,6 +19,7 @@ function App() {
    
    const navigate = useNavigate();
    const location = useLocation();
+   const dispatch = useDispatch();
 
    const [characters, setCharacters] = useState([]);
 
@@ -39,8 +43,9 @@ function App() {
       navigate("/home");
    }
 
-   const onClose = id => {
-      setCharacters(characters.filter(char => char.id !== Number(id)))
+   const onClose = (id) => {
+      setCharacters(characters.filter(char => char.id !== Number(id)));
+      dispatch(removeFav(id));
    }
 
    //* Login
@@ -63,8 +68,8 @@ function App() {
 
    useEffect(() => {
       //* Logueo automático
-      // !access && navigate('/home');
-      !access && navigate('/');
+      !access && navigate('/home');
+      // !access && navigate('/');
    }, [access]);
 
    return (
@@ -90,11 +95,13 @@ function App() {
                element={<Detail />}
             />
             <Route
+               path="/favorites"
+               element={<Favorites onClose={onClose} />} />
+            <Route
                path="*"
                element={<NotFound />}
             />
          </Routes>
-         <hr />
       </div>
    );
 }

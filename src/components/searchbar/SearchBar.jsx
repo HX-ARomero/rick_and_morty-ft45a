@@ -32,6 +32,7 @@ export default function SearchBar(props) {
          <button onClick={handleClick}>Agregar</button>
          {/* Traer Character Random */}
          <button onClick={handleRandom}>Random</button>
+         <hr />
       </div>
    );
 }
