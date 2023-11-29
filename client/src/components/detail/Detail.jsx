@@ -11,7 +11,8 @@ export default function Detail(props) {
    // console.log(id);
    const [character, setCharacter] = useState({});
    useEffect(() => {
-      axios(`${URL}/${id}?key=${API_KEY}`)
+      // axios(`${URL}/${id}?key=${API_KEY}`)
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
          //* { timpo:x, status:x, data: { Rick } }
          .then(
             ({ data }) => {
@@ -27,7 +28,7 @@ export default function Detail(props) {
    }, [id]);
 
   return (
-     <div>
+     <div style={{backgroundColor:"darkslategray", padding: "20px", borderRadius:"20px"}} >
         <h1>Detail</h1>
         <h2>{character.name}</h2>
         <img src={character.image} alt={character.name} />
