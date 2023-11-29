@@ -8,6 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+/client/node_modules
+/server/node_modules
+/.pnp
+.pnp.js
+
+# testing
 dist
 dist-ssr
 *.local

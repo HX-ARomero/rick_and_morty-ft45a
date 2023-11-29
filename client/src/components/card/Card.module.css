@@ -1,0 +1,31 @@
+.container {
+  background-color: grey;
+  /* width: 250px;
+  height: 500px; */
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 10px black;
+  color: darkslategrey;
+  &:hover {
+    box-shadow: 0 10px 10px white;
+  }
+}
+
+.container img {
+  width: 130px;
+  box-shadow: 0 10px 10px black;
+  border-radius: 5px;
+}
+
+.container button {
+  background-color: darkslategrey;
+  margin: 10px;
+  &:hover {
+    background-color: darkcyan;
+  }
+}
+
+.container h2 {
+  color: white;
+}
