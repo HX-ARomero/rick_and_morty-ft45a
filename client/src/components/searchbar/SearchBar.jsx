@@ -1,6 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
+//* Etiquetas personalizadas con Styled Components
+const Container = styled.div`
+   padding-top: 20px;
+   padding-bottom: 15px;
+   margin: auto;
+`
+
+const Input = styled.input`
+   border-radius: 5px;
+   height: 40px;
+`
+
+const MyButton = styled.button`
+   background-color: darkslategrey;
+   color: wheat;
+   &:hover {
+      color: darkslategrey;
+      background-color: darkolivegreen;
+   }
+`
+
 export default function SearchBar(props) {
 
    const [id, setId] = React.useState(""); //* [ Estado, manejador]
@@ -21,26 +42,6 @@ export default function SearchBar(props) {
 		props.onSearch(randomNumber);
 	};
 
-   //* Etiquetas personalizadas con Styled Components
-   const Container = styled.div`
-      padding-top: 20px;
-      padding-bottom: 15px;
-      margin: auto;
-   `
-
-   const Input = styled.input`
-      border-radius: 5px;
-      height: 40px;
-   `
-
-   const MyButton = styled.button`
-      background-color: darkslategrey;
-      color: wheat;
-      &:hover {
-         color: darkslategrey;
-         background-color: darkolivegreen;
-      }
-   `
    
    return (
       <Container>
