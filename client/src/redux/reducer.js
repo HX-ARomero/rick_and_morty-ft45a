@@ -2,7 +2,8 @@ import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./action-types";
 
 const initialState = {
   myFavorites: [],
-  allCharacters: []
+  allCharacters: [],
+  errors: {}
 }
 
 //* allCharacters = [ { Rick, M}, {Morty, M}, {Beth, F}, {Summer, F} ]
@@ -48,6 +49,10 @@ export default function reducer(state = initialState, { type, payload }) {
         ...state,
         myFavorites: orderCopy
       }
+      //* case "ERROR":
+        //* Código
+        //* Cargar error en estado "errors"
+
     default:
       return { ...state }
   }
