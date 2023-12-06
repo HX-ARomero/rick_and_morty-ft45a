@@ -46,6 +46,8 @@ function App() {
    }
 
    const onClose = (id) => {
+      console.log(id);
+      console.log(typeof id);
       setCharacters(characters.filter(char => char.id !== Number(id)));
       dispatch(removeFav(id));
    }
