@@ -4,6 +4,7 @@ module.exports = (sequelize) => {
    sequelize.define('Favorite', {
       id: {
          type: DataTypes.INTEGER,
+         autoIncrement: true,
          allowNull: false,
          primaryKey: true
       },
@@ -33,7 +34,8 @@ module.exports = (sequelize) => {
       },
       location: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: false,
+         defaultValue: "unknown"
       },
    }, { timestamps: false });
 };
